@@ -13,118 +13,77 @@ const {
   RESETPASSTOKEN_API,
   RESETPASSWORD_API,
 } = endpoints;
-
-// export function sendOtp(email, navigate)
-
-export const sendOtp = async (email, navigate) =>{
+export function sendOtp(email, navigate) {
   return async (dispatch) => {
-    const toastId = toast.loading("Loading...");
-    dispatch(setLoading(true));
+    const toastId = toast.loading("Loading...")
+    dispatch(setLoading(true))
     try {
       const response = await apiConnector("POST", SENDOTP_API, {
         email,
         checkUserPresent: true,
-      });
-      console.log("SENDOTP API RESPONSE............", response);
+      })
+      // dispatch(setProgress(100));
+      console.log("SENDOTP API RESPONSE............", response)
 
-      console.log(response.data.success);
+      console.log(response.data.success)
 
       if (!response.data.success) {
-        throw new Error(response.data.message);
+        throw new Error(response.data.message)
       }
 
-      toast.success("OTP Sent Successfully");
-      navigate("/verify-email");
+      toast.success("OTP Sent Successfully")
+      navigate("/verify-email")
     } catch (error) {
-      console.log("SENDOTP API ERROR............", error);
-      toast.error("Could Not Send OTP");
+      console.log("SENDOTP API ERROR............", error)
+      toast.error(error?.response?.data?.message)
+      // dispatch(setProgress(100));
     }
-    dispatch(setLoading(false));
-    toast.dismiss(toastId);
-  };
-}
-
-// export function signUp(
-//   accountType,
-//   firstName,
-//   lastName,
-//   email,
-//   password,
-//   confirmPassword,
-//   otp,
-//   navigate
-// ) {
-//   return async (dispatch) => {
-//     const toastId = toast.loading("Loading...");
-//     dispatch(setLoading(true));
-//     try {
-//       const response = await apiConnector("POST", SIGNUP_API, {
-//         accountType,
-//         firstName,
-//         lastName,
-//         email,
-//         password,
-//         confirmPassword,
-//         otp,
-//       });
-
-//       console.log("SIGNUP API RESPONSE............", response);
-
-//       if (!response.data.success) {
-//         throw new Error(response.data.message);
-//       }
-//       toast.success("Signup Successful");
-//       navigate("/login");
-//     } catch (error) {
-//       console.log("SIGNUP API ERROR............", error);
-//       toast.error("Signup Failed");
-//       navigate("/signup");
-//     }
-//     dispatch(setLoading(false));
-//     toast.dismiss(toastId);
-//   };
-// }
-
-export function signUp(
-    accountType,
-    firstName,
-    lastName,
-    email,
-    password,
-    confirmPassword,
-    otp,
-    navigate
-  ) {
-    return async (dispatch) => {
-      const toastId = toast.loading("Loading...")
-      dispatch(setLoading(true))
-      try {
-        const response = await apiConnector("POST", SIGNUP_API, {
-          accountType,
-          firstName,
-          lastName,
-          email,
-          password,
-          confirmPassword,
-          otp,
-        })
-  
-        console.log("SIGNUP API RESPONSE............", response)
-  
-        if (!response.data.success) {
-          throw new Error(response.data.message)
-        }
-        toast.success("Signup Successful")
-        navigate("/login")
-      } catch (error) {
-        console.log("SIGNUP API ERROR............", error)
-        toast.error("Signup Failed")
-        navigate("/signup")
-      }
-      dispatch(setLoading(false))
-      toast.dismiss(toastId)
-    }
+    dispatch(setLoading(false))
+    toast.dismiss(toastId)
   }
+}
+export function signUp(
+  accountType,
+  firstName,
+  lastName,
+  email,
+  password,
+  confirmPassword,
+  otp,
+  navigate
+) {
+  return async (dispatch) => {
+    const toastId = toast.loading("Loading...")
+    dispatch(setLoading(true))
+    try {
+      const response = await apiConnector("POST", SIGNUP_API, {
+        accountType,
+        firstName,
+        lastName,
+        email,
+        password,
+        confirmPassword,
+        otp,
+      })
+
+      console.log("SIGNUP API RESPONSE............", response)
+
+      if (!response.data.success) {
+        throw new Error(response.data.message)
+      }
+      // dispatch(setProgress(100));
+      toast.success("Signup Successful")
+      navigate("/login")
+    } catch (error) {
+      // dispatch(setProgress(100));
+      console.log("SIGNUP API ERROR............", error)
+      toast.error("Signup Failed")
+      navigate("/signup")
+    }
+    dispatch(setLoading(false))
+    toast.dismiss(toastId)
+  }
+}
 
 export function login(email, password, navigate) {
   return async (dispatch) => {

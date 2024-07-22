@@ -8,69 +8,192 @@ const BlockOfCode = ({
   ctabtn1,
   ctabtn2,
   codeblock,
-  backgroundGradient,
+  backgroudGradient,
   codeColor,
 }) => {
-  return (
-    <div
-      className={`flex ${position} my-20 justify-between flex-col lg:gap-10 gap-10 flex-wrap`}>
-      <div className="w-[100%]    flex flex-row gap-8 items-center">
-        <div>
-          <div className="pb-4 my-7">{heading}</div>
-          <div className="text-richblack-300 text-base font-bold w-[65%] -mt-3 my-10">
-            {subheading}
-          </div>
+//   return (
+//     <div className={`flex ${position} my-20 justify-between gap-10 flex-wrap `}>
+//       <div className="w-[100%]    flex flex-row gap-8 items-center">
+//         <div>
+//           <div className=" flex flex-col gap-8 lg:w-[80%] p-4">{heading}</div>
+//           <div className="text-richblack-300 font-bold text-sm p-4 md:text-lg lg:w-[80%]">
+//             {subheading}
+//           </div>
 
-          <div className="flex gap-7 my-10">
-            <AButton active={ctabtn1.active} linkto={ctabtn1.link}>
-              <div className="flex items-center gap-2">
-                {ctabtn1.btnText}
-                <FaArrowRight />
-              </div>
-            </AButton>
-            <AButton active={ctabtn2.active} linkto={ctabtn2.link}>
-              {ctabtn2.btnText}
-            </AButton>
-          </div>
-        </div>
+//           <div className="flex gap-7 mt-7 p-3 ">
+//             <AButton active={ctabtn1.active} linkto={ctabtn1.link}>
+//               <div className="flex gap-2 items-center">
+//                 {ctabtn1.btnText}
+//                 <FaArrowRight />
+//               </div>
+//             </AButton>
+//             <AButton active={ctabtn2.active} linkto={ctabtn2.link}>
+//               {ctabtn2.btnText}
+//             </AButton>
+//           </div>
+//         </div>
 
-        <div className="h-fit border border-slate-200 shadow-slate-800 ring-2 rounded-sm flex flex-row py-3 text-[10px] sm:text-sm leading-[18px] sm:leading-6 relative w-[100%] lg:w-[670px]">
-          {backgroundGradient}
-          {/* Indexing */}
-          <div className="text-center flex flex-col   w-[10%] select-none text-richblack-400 font-inter font-bold ">
-            <p>1</p>
-            <p>2</p>
-            <p>3</p>
-            <p>4</p>
-            <p>5</p>
-            <p>6</p>
-            <p>7</p>
-            <p>8</p>
-            <p>9</p>
-            <p>10</p>
-            <p>11</p>
-          </div>
+//         <div className=" h-fit  flex flex-row text-10[px] w-[100%] py-3 lg:w-[70%] glass  ">
+//           {backgroudGradient}
 
-          {/* Codes */}
-          <div
-            className={`w-[90%] flex flex-col gap-2 font-bold font-mono text-blue-300 pr-1 shadow-neutral-300`}
-          >
-            <TypeAnimation
-              sequence={[codeblock, 1000, ""]}
-              cursor={true}
-              repeat={Infinity}
-              style={{
-                whiteSpace: "pre-line",
-                display: "block",
+//           <div className="text-center flex flex-col w-[10%] text-richblack-400 font-inter font-bold">
+//             <p>1</p>
+//             <p>2</p>
+//             <p>3</p>
+//             <p>4</p>
+//             <p>5</p>
+//             <p>6</p>
+//             <p>7</p>
+//             <p>8</p>
+//             <p>9</p>
+//             <p>10</p>
+//             <p>11</p>
+//           </div>
 
-              }}
-              omitDeletionAnimation={true}
-            />
-          </div>
-        </div>
+//           <div
+//             className={`w-[90%] flex flex-col gap-2 font-bold font-mono ${codeColor} pr-2 relative`}
+//           >
+//             <div className={`${backgroudGradient}`}></div>
+//             <TypeAnimation
+//               sequence={[codeblock, 2000, ""]}
+//               repeat={Infinity}
+//               cursor={true}
+//               style={{
+//                 whiteSpace: "pre-line",
+//                 display: "block",
+//                 overflowX: "hidden",
+//                 fontSize: "16px",
+//               }}
+//               omitDeletionAnimation={true}
+//             />
+//           </div>
+//         </div>
+//       </div>
+
+//       <div className=" h-fit  flex flex-row text-10[px] w-[100%] py-3 lg:w-[500px] glass  ">
+       
+
+//         <div className="text-center flex flex-col w-[10%] text-richblack-400 font-inter font-bold">
+//           <p>1</p>
+//           <p>2</p>
+//           <p>3</p>
+//           <p>4</p>
+//           <p>5</p>
+//           <p>6</p>
+//           <p>7</p>
+//           <p>8</p>
+//           <p>9</p>
+//           <p>10</p>
+//           <p>11</p>
+//         </div>
+
+//         <div
+//           className={`w-[90%] flex flex-col gap-2 font-bold font-mono ${codeColor} pr-2 relative`}
+//         >
+//           <div className={`${backgroudGradient}`}></div>
+//           <TypeAnimation
+//             sequence={[codeblock, 2000, ""]}
+//             repeat={Infinity}
+//             cursor={true}
+//             style={{
+//               whiteSpace: "pre-line",
+//               display: "block",
+//               overflowX: "hidden",
+//               fontSize: "16px",
+//             }}
+//             omitDeletionAnimation={true}
+//           />
+
+//           <div></div>
+//         </div>
+
+//         <div></div>
+//       </div>
+
+//       <div>
+//         <div className=" flex flex-col gap-8 lg:w-[80%] p-4">{heading}</div>
+//         <div className="text-richblack-300 font-bold text-sm p-4 md:text-lg lg:w-[80%]">
+//           {subheading}
+//         </div>
+//       </div>
+//     </div>
+//   );
+// };
+
+
+
+
+
+return (
+  <div className={`flex ${position} my-20 justify-between gap-10 flex-wrap `}>
+    
+  {/*Section 1*/}
+  <div className=' flex flex-col gap-8 lg:w-[50%] p-4'>
+      {heading}
+      <div className='text-richblack-300 font-bold text-sm p-4 md:text-lg'>
+          {subheading}
       </div>
-    </div>
-  );
-};
+
+      <div className='flex gap-7 mt-7 p-3'>
+          <AButton active={ctabtn1.active} linkto={ctabtn1.linkto}>
+              <div className='flex gap-2 items-center'>
+                  {ctabtn1.btnText}
+                  <FaArrowRight/>
+              </div>
+          </AButton>
+
+          <AButton active={ctabtn2.active} linkto={ctabtn2.linkto}>  
+                  {ctabtn2.btnText}
+          </AButton>
+      </div>
+
+
+  </div>
+
+   {/*Section 2*/}
+   <div className=' h-fit  flex flex-row text-10[px] w-[100%] py-3 lg:w-[500px] glass  '> 
+      {/*HW -> BG gradient*/}
+
+      <div className='text-center flex flex-col w-[10%] text-richblack-400 font-inter font-bold'>
+          <p>1</p>
+          <p>2</p>
+          <p>3</p>
+          <p>4</p>
+          <p>5</p>
+          <p>6</p>
+          <p>7</p>
+          <p>8</p>
+          <p>9</p>
+          <p>10</p>
+          <p>11</p>
+      </div>
+
+      <div className={`w-[90%] flex flex-col gap-2 font-bold font-mono ${codeColor} pr-2 relative`}>
+          <div className={`${backgroudGradient}`}></div>
+         <TypeAnimation
+          sequence={[codeblock, 2000, ""]}
+          repeat={Infinity}
+          cursor={true}
+         
+          style = {
+              {
+                  whiteSpace: "pre-line",
+                  display:"block",
+                  overflowX:"hidden",
+                  fontSize:"16px",
+              }
+          }
+          omitDeletionAnimation={true}
+         />
+      </div>
+
+   </div>
+
+
+
+  </div>
+  
+)
+}
 
 export default BlockOfCode;

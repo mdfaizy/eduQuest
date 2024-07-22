@@ -1,15 +1,3 @@
-
-
-// const ProfileDropdown = () => {
-//   return (
-//     <div>ProfileDropdown</div>
-//   )
-// }
-
-// export default ProfileDropdown
-
-
-
 import { useRef, useState } from "react"
 import { AiOutlineCaretDown } from "react-icons/ai"
 import { VscDashboard, VscSignOut } from "react-icons/vsc"
